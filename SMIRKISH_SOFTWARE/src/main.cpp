@@ -916,6 +916,17 @@ delay(1000);
 REG();
 }
 
+void flashLights(){
+for(int i = 0; i <= 5; i++){
+digitalWrite(blueLed, HIGH);
+delay(200);
+digitalWrite(blueLed, LOW);
+digitalWrite(greenLed, HIGH);
+delay(200);
+digitalWrite(blueLed, LOW);
+}
+ }
+
 
 void disco(){
 Smile_REG();
@@ -940,21 +951,18 @@ Smile_left();
 delay(1000);
 
 }
+unsigned long currentmillis = millis();
 
 void loop(){
-  //SMIRKISH INTRO
-intro();
-delay(5000);
-
-//SMIRKISH'S NORMAL HABITS
-look_around_normal();
-delay(5000);
-
-//SMIRKISH'S HAPPY HABITS
-Smile_Look_Around();
-delay(5000);
-
-//SMIRKISH DISCO!
+for(j = 0; j <=5; j++){
 disco();
-delay(5000);
+REG();
+flashLights();
+delay(500);
+Smile_Look_Around();
+delay(200);
+look_around_normal();
+}
+flashLights();
+REG();
 }
